@@ -1,77 +1,111 @@
-//#ENJOY
-const fs = require("fs-extra");
-if (fs.existsSync(".env"))
-  require("dotenv").config({ path: __dirname + "/.env" });
-global.audio = "";
-global.video = "";
-global.port = process.env.PORT;
-global.appUrl = process.env.APP_URL || "";
-global.email = "davidcyril209@gmail.com";
-global.location = "Abuja, Nigeria";
-global.mongodb = process.env.MONGODB_URI || "";
-global.allowJids = process.env.ALLOW_JID || "null";
-global.blockJids = process.env.BLOCK_JID || "null";
-global.DATABASE_URL = process.env.DATABASE_URL || "";
-global.timezone = process.env.TZ || process.env.TIME_ZONE || "Africa/Lagos";
-global.github = process.env.GITHUB || "https://github.com/DeeCeeXxx/Queen_Anita-V2";
-global.gurl = process.env.GURL || "https://whatsapp.com/channel/0029VaeRru3ADTOEKPCPom0L";
-global.website = process.env.GURL || "https://whatsapp.com/channel/0029VaeRru3ADTOEKPCPom0L";
-global.THUMB_IMAGE = process.env.THUMB_IMAGE || process.env.IMAGE || "https://telegra.ph/file/17c8ba84a7761eed633f6.jpg";
-global.devs = "234906628353";
-global.sudo = process.env.SUDO || "";
-global.owner = process.env.OWNER_NUMBER || "2347043759577";
-global.style = process.env.STYLE || "3";
-global.gdbye = process.env.GOODBYE || "false";
-global.wlcm = process.env.WELCOME || "false";
-global.warncount = process.env.WARN_COUNT || 3;
-global.disablepm = process.env.DISABLE_PM || "false";
-global.disablegroup = process.env.DISABLE_GROUPS || "false",
-global.MsgsInLog = process.env.MSGS_IN_LOG || "false";
-global.userImages = process.env.USER_IMAGES || "https://i.imgur.com/H4qeXwa.jpeg";
-global.waPresence = process.env.WAPRESENCE || "available";
-global.readcmds = process.env.READ_COMMAND || "false";
-global.readmessage = process.env.READ_MESSAGE || "false";
-global.readmessagefrom = process.env.READ_MESSAGE_FROM || "";
-global.read_status = process.env.AUTO_READ_STATUS || "true";
-global.save_status = process.env.AUTO_SAVE_STATUS || "false";
-global.save_status_from = process.env.SAVE_STATUS_FROM || "";
-global.read_status_from = process.env.READ_STATUS_FROM || "";
+const fs = require("fs");
+const chalk = require("chalk");
 
-global.api_smd = "https://api-smd-1.vercel.app";
-global.scan = "https://secret-garden-43998-4daad95d4561.herokuapp.com/";
 
-global.SESSION_ID =
-  process.env.SESSION_ID ||
-  ""
-module.exports = {
-  menu: process.env.MENU || "2",
-  HANDLERS: process.env.PREFIX || ".",
-  BRANCH: process.env.BRANCH || "main",
-  VERSION: process.env.VERSION || "1.0.0",
-  caption: process.env.CAPTION || "`QUEEN_ANITA-V2™`",
-  author: process.env.PACK_AUTHER || "QUEEN_ANITA-V2",
-  packname: process.env.PACK_NAME || "A N I T A",
-  botname: process.env.BOT_NAME || "QUEEN_ANITA-V2",
-  ownername: process.env.OWNER_NAME || "David Cyril",
-  errorChat: process.env.ERROR_CHAT || "",
-  KOYEB_API: process.env.KOYEB_API || "false",
-  REMOVE_BG_KEY: process.env.REMOVE_BG_KEY || "",
-  OPENAI_API_KEY: process.env.OPENAI_API_KEY || "sk-proj-X00anFgosmRhhWP75khXT3BlbkFJlyo7xhWoWhz9Sdoap9Hv",
-  HEROKU_API_KEY: process.env.HEROKU_API_KEY || "",
-  HEROKU_APP_NAME: process.env.HEROKU_APP_NAME || "",
-  antilink_values: process.env.ANTILINK_VALUES || "all",
-  HEROKU: process.env.HEROKU_APP_NAME && process.env.HEROKU_API_KEY,
-  aitts_Voice_Id: process.env.AITTS_ID || "37",
-  ELEVENLAB_API_KEY: process.env.ELEVENLAB_API_KEY || "",
-  WORKTYPE: process.env.WORKTYPE || process.env.MODE || "public",
-  LANG: (process.env.THEME || "A N I T A").toUpperCase(),
+//
+global.available = false;
+global.autoReadGc = false;
+global.autoReadAll = false;
+global.antitags = true;
+
+
+//auto functioner
+global.autoTyping = false;                //auto tying by default off.
+global.autoRecord = true;                //auto recording by default off.
+global.groupevent = false;                //This is the new variable for controlling group event handling.
+global.statusseen = false;                 //This is the new variable for controlling status seen.
+
+
+//
+global.Owner = ["2347043759577","2349066528353"];         //If you want singal number so global.Owner = ['8801928502256'] Change into your number.
+global.OwnerNumber = ["2347043759577","2349066528353"];   //If you want singal number so global.Owner = ['8801928502256'] Change into your number.
+global.ownertag = ["2347043759577"];
+global.OwnerName = "DAVID CYRIL";
+global.BotName = "QUEEN_ANITA-V2";
+global.packname = "A N I T A <3 D A V I D";                             //Do not change.
+global.author = "QUEEN_ANITA-V2";                               //Do not change.
+global.BotSourceCode = "https://github.com/DeeCeeXxx/"; //Do not change.
+global.SupportGroupLink = "https://whatsapp.com/channel/0029VaeRru3ADTOEKPCPom0L"; 
+
+
+//
+global.sessionName = "session";                          //Do not change.
+
+
+//
+global.prefa = ["."];                                    //Default prefix here.
+global.openAiAPI = "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";
+
+
+//
+global.location = "Lagos, Nigeria";                   
+global.reactmoji = "🐦";
+global.themeemoji = "😏";
+global.vidmenu = { url: 'https://tenor.com/view/chainsaw-man-power-csm-power-anime-gif-9890569885648818723' };
+global.websitex = "https://github.com/ahil15";
+global.lolhuman = "KaysaS";
+
+
+//
+global.BotLogo = fs.readFileSync("./Assets/pic1.jpg");
+global.Thumb = fs.readFileSync("./Assets/pic9.jpg");
+global.Thumb1 = fs.readFileSync("./Assets/pic5.jpg");
+global.ErrorPic = fs.readFileSync("./Assets/pic7.jpg");
+
+
+//
+global.ntilinkytvid = []
+global.ntilinkytch = []
+global.ntilinkig = []
+global.ntilinkfb = []
+global.ntilinktg = []
+global.ntilinktt = []
+global.ntilinktwt = []
+global.ntilinkall = []
+global.nticall = []
+global.ntwame = []
+global.nttoxic = []
+global.ntnsfw = []
+global.ntvirtex = []
+global.rkyt = []
+global.wlcm = []
+global.gcrevoke = []
+global.autorep = []
+global.ntilink = []
+
+
+//
+global.mess = {
+    jobdone: 'Here you go...',
+    useradmin: 'Sorry, only *Group Admins* can use this command *Baka*!',
+    botadmin: 'Sorry, i cant execute this command without being an *Admin* of this group.',
+    botowner: 'Only my *Owner* can use this command, Baka!',
+    grouponly: 'This command is only made for *Groups*, Baka!',
+    privateonly: 'This command is only made for *Private Chat*, Baka!',
+    botonly: 'Only the *Bot itself* can use this command!',
+    waiting: 'Just Wait...',
+    nolink: 'Please provide me *link*, Baka!',
+    error: 'An error occurd!',
+    banned: 'You are *Banned* fron using commands!',
+    bangc: 'This Group is *Banned* from using Commands!',
+    nonsfw: 'Dont be a pervert Baka! This is not a NSFW enabled group!'
+    
+}
+
+global.limitawal = {
+  premium: "Infinity",
+  free: 2,
+  monayawal: 1000,
 };
-global.rank = "updated";
-global.isMongodb = false;
-let file = require.resolve(__filename);
-fs.watchFile(file, () => {
-  fs.unwatchFile(file);
-  console.log(`Update'${__filename}'`);
-  delete require.cache[file];
-  require(file);
-});
+
+global.limitawal = {
+  rakyat: "Infinity",
+  free: 100,
+};
+
+global.APIs = {
+  zenz: "https://zenzapis.xyz",
+};
+global.APIKeys = {
+  "https://zenzapis.xyz": "5d1197db351b",
+};
